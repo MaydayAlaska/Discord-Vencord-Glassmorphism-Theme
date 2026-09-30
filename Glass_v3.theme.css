@@ -1,6 +1,6 @@
 /*
-  @version 4.2.4
-  @description Apple-inspired true glassmorphism for Discord/Vencord (Fix altezza e padding pannello stream/attività).
+  @version 4.3.1
+  @description Glassmorphism for Discord/Vencord.
  */
 
 /* Maintained Discord layout/core. */
@@ -455,6 +455,35 @@ div#app-mount [class*="guilds_"] [class*="folderGuildsList_"] {
 #app-mount .panels__5e434 .buttons__37e49 {
     gap: 2px !important;
     margin-right: 2px !important;
+}
+
+/* ============================================================
+   FINESTRA IMPOSTAZIONI: TRASPARENZA SENZA OSCURAMENTO
+   ============================================================ */
+
+/* Rimuove l'alone scuro di sfondo del backdrop senza toccare la visibilità del menù */
+#app-mount .layerContainer__59d0d [class*="backdrop_"],
+#app-mount [class*="backdrop__"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Rende trasparente il contenitore modale e i suoi scroller interni */
+#app-mount .container__8a031.modal_e44912,
+#app-mount .modalContent_e44912,
+#app-mount .modalContentInner_e44912,
+#app-mount .container_abd9a8,
+#app-mount .sidebar__409aa,
+#app-mount .content_e9e3ed,
+#app-mount .contentHeader_e9e3ed,
+#app-mount .contentBody_e9e3ed,
+#app-mount .scroller__6131a,
+#app-mount .panel__6131a {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 /* ============================================================
