@@ -6,10 +6,9 @@ You will need to enable "Enable windows transparency" in Vencord Settings
 For Linux:
 You will need to install Blur My Shell for GNOME
 https://extensions.gnome.org/extension/3193/blur-my-shell/
-And its script gnome-rounded-blur
-[https://github.com/aunetx/blur-my-shell/blob/master/scripts/GUIDE.md](https://github.com/aunetx/blur-my-shell/blob/master/scripts/GUIDE.md#gnome-rounded-blur-helper-script)
-(you can find it on AUR)
-And set it as follow:
+And its script gnome-rounded-blur. You can find it on AUR.
+https://github.com/aunetx/blur-my-shell/blob/master/scripts/GUIDE.md#gnome-rounded-blur-helper-script
+Set it as follows:
 <img width="646" height="1020" alt="image" src="https://github.com/user-attachments/assets/3b743746-d445-421e-8425-bd13e8a5d9b6" />
 Edit the Sigma and Corner Radius as you like.
 
