@@ -1,5 +1,5 @@
 /*
-  @version 4.5.4
+  @version 4.6.1
   @description Glassmorphism for Discord/Vencord.
  */
 
@@ -482,10 +482,23 @@ div#app-mount [class*="folderGuildsList_"] {
    ============================================================ */
 #app-mount .panels__5e434 {
     overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
 }
 
-#app-mount .panels__5e434 .panel__5dec7.activityPanel__5e434,
-#app-mount .panels__5e434 [class*="activityPanel_"] {
+/* Pannello Stream/Attività: se vuoto scompare del tutto senza lasciare vuoti */
+#app-mount .panels__5e434 .panel__5dec7.activityPanel__5e434:empty,
+#app-mount .panels__5e434 [class*="activityPanel_"]:empty {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#app-mount .panels__5e434 .panel__5dec7.activityPanel__5e434:not(:empty),
+#app-mount .panels__5e434 [class*="activityPanel_"]:not(:empty) {
     min-height: 54px !important;
     box-sizing: border-box !important;
 }
@@ -501,8 +514,17 @@ div#app-mount [class*="folderGuildsList_"] {
     align-items: center !important;
 }
 
-/* Box connessione vocale */
-#app-mount .panels__5e434 .wrapper_e131a9 {
+/* Box connessione vocale: collassa istantaneamente a 0 quando esci dalla chiamata */
+#app-mount .panels__5e434 .wrapper_e131a9:empty,
+#app-mount .panels__5e434 [class*="wrapper_e131a9"]:empty {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#app-mount .panels__5e434 .wrapper_e131a9:not(:empty) {
     padding: 10px 10px 6px 10px !important;
     box-sizing: border-box !important;
 }
@@ -525,10 +547,11 @@ div#app-mount [class*="folderGuildsList_"] {
     gap: 6px !important;
 }
 
-/* Box profilo utente in basso */
+/* Box profilo utente in basso: centrato e simmetrico */
 #app-mount .panels__5e434 .container__37e49 {
     padding: 8px 10px !important;
     box-sizing: border-box !important;
+    height: auto !important;
 }
 
 /* Pulsanti audio (microfono, cuffie, impostazioni) distanziati dal bordo destro */
@@ -563,6 +586,49 @@ div#app-mount [class*="folderGuildsList_"] {
     background: transparent !important;
     background-color: transparent !important;
     box-shadow: none !important;
+}
+
+/* ============================================================
+   MENU A TENDINA: BLUR PROFONDO & FIX BORDI SPIGOLOSI
+   ============================================================ */
+#app-mount .popout__76f04,
+#app-mount .layerContainer__59d0d [class*="popout_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+#app-mount [data-mana-component="select-list-box"],
+#app-mount div[role="listbox"],
+#app-mount .popout__76f04 [class*="listbox_"],
+#app-mount .layerContainer__59d0d div[role="listbox"] {
+    background-color: rgba(10, 14, 22, 0.75) !important;
+    backdrop-filter: blur(120px) !important;
+    -webkit-backdrop-filter: blur(120px) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#app-mount div[role="listbox"] [class*="scroller_"],
+#app-mount [data-mana-component="select-list-box"] [class*="scroller_"] {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    background: transparent !important;
+}
+
+#app-mount div[role="listbox"] [role="option"][aria-selected="true"],
+#app-mount [data-mana-component="select-list-box"] [role="option"][aria-selected="true"],
+#app-mount div[role="listbox"] [class*="selected_"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
 }
 
 /* ============================================================
