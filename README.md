@@ -1,7 +1,9 @@
 I asked AI to make a glassmorphism theme for Vencord. The I guided it to make it look with a lot of transparency. You will need to enable "Enable windows transparency" in Vencord Settings 
 
 <img width="1156" height="367" alt="Vencord window transparency setting" src="https://github.com/user-attachments/assets/a70640b5-68cf-4aa0-b86e-58b3d3be8a15" />
-<br>---<br>
+<br>
+---
+<br>
 Should work fine on Windows.<br>
 On Linux, to achieve blur and rounded corners on GNOME:
 
