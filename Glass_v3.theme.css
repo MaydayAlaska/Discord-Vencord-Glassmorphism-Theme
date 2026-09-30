@@ -1,5 +1,5 @@
 /*
-  @version 4.3.1
+  @version 4.3.4
   @description Glassmorphism for Discord/Vencord.
  */
 
@@ -24,7 +24,7 @@ body {
     --border-hover-transition: 180ms ease;
 
     /* title bar */
-    --top-bar-height: 10px;
+    --top-bar-height: 28px;
     --top-bar-button-position: titlebar;
     --top-bar-title-position: hide;
     --custom-window-controls: on;
