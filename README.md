@@ -2,7 +2,7 @@ I asked AI to make a glassmorphism theme for Vencord. The I guided it to make it
 
 <img width="1156" height="367" alt="Vencord window transparency setting" src="https://github.com/user-attachments/assets/a70640b5-68cf-4aa0-b86e-58b3d3be8a15" />
 <br>---<br>
-Should work fine on Windows.
+Should work fine on Windows.<br>
 On Linux, to achieve blur and rounded corners on GNOME:
 
 1. Install the [Blur My Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/) extension.
