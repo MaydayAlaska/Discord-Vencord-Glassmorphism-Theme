@@ -6,5 +6,5 @@ You will need to enable "Enable windows transparency" in Vencord Settings
 Then you will need to install Blur My Shell for GNOME
 https://extensions.gnome.org/extension/3193/blur-my-shell/
 And set it as follow:
-<img width="620" height="1005" alt="image" src="https://github.com/user-attachments/assets/9072237a-d781-4f67-a4de-f3289d4682db" />
+<img width="646" height="1020" alt="image" src="https://github.com/user-attachments/assets/3b743746-d445-421e-8425-bd13e8a5d9b6" />
 Edit the Sigma as you like.
