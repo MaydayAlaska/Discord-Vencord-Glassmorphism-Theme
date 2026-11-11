@@ -1,5 +1,5 @@
 /*
-  @version 4.6.3
+  @version 4.6.4
   @description Glassmorphism for Discord/Vencord.
  */
 
@@ -168,7 +168,7 @@ html, body,
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    z-index: 99998 !important;
+    z-index: 9999990 !important;
     display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -177,7 +177,7 @@ html, body,
 }
 
 /* ============================================================
-   TASTI FINESTRA STILIZZATI (SOLO CONTROLLI FINESTRA FISSI IN ALTO A DESTRA)
+   TASTI FINESTRA STILIZZATI (FISSI IN ALTO A DESTRA IN OGNI VISTA)
    ============================================================ */
 #app-mount .winButtons_c38106,
 #app-mount .winButtonsWithDivider_c38106,
@@ -189,7 +189,7 @@ html, body,
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
-    z-index: 99999 !important;
+    z-index: 10000000 !important;
     background: transparent !important;
     -webkit-app-region: no-drag !important;
     padding-right: 4px !important;
@@ -209,13 +209,109 @@ html, body,
     display: none !important;
 }
 
-/* Assicura che la barra header / inbox (trailing) non vada mai in dissolvenza o scomparsa */
+/* Assicura che i tasti finestra e la barra superiore rimangano SEMPRE fissi e visibili:
+   in ogni canale, inclusi canali vocali, video streaming, chiamate e stati di inattività (idle) */
+#app-mount [class^="titleBar_"],
+#app-mount [class*="titleBar_"],
+#app-mount .typeWindows_a934d8,
+#app-mount [class*="typeWindows_"],
+#app-mount .bar_c38106,
+#app-mount [class*="bar_c38106"],
+#app-mount .winButtons_c38106,
+#app-mount .winButtonsWithDivider_c38106,
+#app-mount [class*="winButtons_"],
+#app-mount [class*="winButton_"],
 .base__5e434 .trailing_c38106,
 .popout__0bd4a .trailing_c38106,
-#app-mount .trailing_c38106 {
+#app-mount .trailing_c38106,
+#app-mount [class*="trailing_"],
+#app-mount [class*="idle_"] [class*="titleBar_"],
+#app-mount [class*="idle_"] [class*="typeWindows_"],
+#app-mount [class*="idle_"] [class*="bar_c38106"],
+#app-mount [class*="idle_"] [class*="winButtons_"],
+#app-mount [class*="idle_"] [class*="winButton_"],
+#app-mount [class*="idle_"] [class*="trailing_"],
+#app-mount [class*="videoControls_"] [class*="winButtons_"],
+#app-mount [class*="videoControls_"] [class*="winButton_"],
+#app-mount [class*="callContainer_"] [class*="winButtons_"],
+#app-mount [class*="callContainer_"] [class*="winButton_"],
+[class*="idle_"] #app-mount [class*="titleBar_"],
+[class*="idle_"] #app-mount [class*="typeWindows_"],
+[class*="idle_"] #app-mount [class*="bar_c38106"],
+[class*="idle_"] #app-mount [class*="winButtons_"],
+[class*="idle_"] #app-mount [class*="winButton_"],
+[class*="idle_"] #app-mount [class*="trailing_"] {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
+    pointer-events: auto !important;
+    transition: none !important;
+}
+
+/* ============================================================
+   CONTROLLI VOCALI / VIDEO (TASTI A SCOMPARSA: POPOUT, FULLSCREEN ECC.)
+   Spostati a sinistra per non finire sopra o sotto i tasti finestra
+   ============================================================ */
+#app-mount [class*="topControls_"],
+#app-mount [class*="videoControls_"] [class*="topControls_"] {
+    padding-right: 110px !important;
+    margin-right: 0 !important;
+    z-index: 9999 !important;
+}
+
+/* ============================================================
+   CANALE VOCALE: HEADER & TASTO MESSAGGI (CHAT) SEMPRE FISSI
+   Subito affiancato a sinistra dell'icona inbox (in alto a destra)
+   ============================================================ */
+#app-mount [class*="callContainer_"] [class*="upperContainer_"],
+#app-mount [class*="callContainer_"] [class*="headerWrapper_"],
+#app-mount [class*="callContainer_"] [class*="header_"] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
+#app-mount [class*="callContainer_"] [class*="toolbar_"],
+#app-mount [class*="upperContainer_"] [class*="toolbar_"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding-right: 38px !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+#app-mount [class*="callContainer_"] [class*="upperContainer_"],
+#app-mount [class*="callContainer_"] [class*="headerWrapper_"],
+#app-mount [class*="callContainer_"] [class*="header_"],
+#app-mount [class*="callContainer_"] [class*="toolbar_"],
+#app-mount [class*="callContainer_"] [class*="chatButton_"],
+#app-mount [class*="callContainer_"] button[aria-label*="chat" i],
+#app-mount [class*="callContainer_"] [aria-label*="chat" i],
+#app-mount [class*="callContainer_"] button[aria-label*="messagg" i],
+#app-mount [class*="callContainer_"] [aria-label*="messagg" i],
+#app-mount [class*="upperContainer_"],
+#app-mount [class*="idle_"] [class*="callContainer_"] [class*="upperContainer_"],
+#app-mount [class*="idle_"] [class*="callContainer_"] [class*="headerWrapper_"],
+#app-mount [class*="idle_"] [class*="callContainer_"] [class*="header_"],
+#app-mount [class*="idle_"] [class*="callContainer_"] [class*="toolbar_"],
+#app-mount [class*="idle_"] [class*="callContainer_"] [class*="chatButton_"],
+#app-mount [class*="idle_"] [class*="callContainer_"] button[aria-label*="chat" i],
+#app-mount [class*="idle_"] [class*="callContainer_"] [aria-label*="chat" i],
+#app-mount [class*="idle_"] [class*="callContainer_"] button[aria-label*="messagg" i],
+#app-mount [class*="idle_"] [class*="callContainer_"] [aria-label*="messagg" i],
+#app-mount [class*="idle_"] [class*="upperContainer_"],
+[class*="idle_"] #app-mount [class*="callContainer_"] [class*="upperContainer_"],
+[class*="idle_"] #app-mount [class*="callContainer_"] [class*="headerWrapper_"],
+[class*="idle_"] #app-mount [class*="callContainer_"] [class*="header_"],
+[class*="idle_"] #app-mount [class*="callContainer_"] [class*="toolbar_"],
+[class*="idle_"] #app-mount [class*="callContainer_"] [class*="chatButton_"],
+[class*="idle_"] #app-mount [class*="upperContainer_"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
     transition: none !important;
 }
 
@@ -359,8 +455,11 @@ html, body,
 
 /* Rimuove i gradienti nero-fumo sopra e sotto i controlli chiamata */
 #app-mount .gradientTop_bfe55a,
+#app-mount [class*="gradientTop_"],
 #app-mount .gradientBottom_bfe55a,
-#app-mount .gradientContainer_bfe55a {
+#app-mount [class*="gradientBottom_"],
+#app-mount .gradientContainer_bfe55a,
+#app-mount [class*="gradientContainer_"] {
     background: transparent !important;
     display: none !important;
 }
